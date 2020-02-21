@@ -16,7 +16,7 @@ function changeLastElement () {
 	elem[0].style.color = "black";
 };
 
-// выбираем следущий элемент
+// выбираем следущий элемент   
 function nextElement () {
 	let elem = document.getElementById("myId");
 	elem.style.color = "black";
@@ -27,9 +27,10 @@ function nextElement () {
 
 // выбираем предыдущий элемент
 function beforElement () {
+
 	let elem = document.getElementById("myId");
 	elem.style.color = "black";
-	elem.previousSibling.id = "green";
+	elem.previousSibling.id = "myId";
 	elem.id = "newId";
 	document.getElementById("myId").style.color = "green";
 };
