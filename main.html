@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="main.js"></script>
+<body>
+	<ul id="myList"><li id="myId">Первый элемент</li><li>Второй элемент</li><li>Третий элемент</li><li>Четвёртый элемент</li><li id ="myId">Пятый элемент</li></ul>
+	<form>
+		<input type="button" value="Выбрать первый элемент" onclick="changeFirstElement()"><br>
+		<input type="button" value="Выбрать последний элемент" onclick="changeLastElement()"><br>
+		<input type="button" value="Добавить элемент в конец" onclick="addLastElement(this.form)"><br>
+		<input type="button" value="Удалить элемент с конца" onclick="removeLastElement(this.form)"><br>
+		<input type="button" value="Добавить элемент в начало" onclick="addFirstElement(this.form)"><br>
+		<input type="button" value="Удалить элемент с начала" onclick="removeFirstElement(this.form)"><br>
+		<input type="button" value="Выбрать следующий элемент" onclick="nextElement()"><br>
+		<input type="button" value="Выбрать предыдущий элемент" onclick="beforElement()"><br>
+	</form>
+</body>
+</html>	
