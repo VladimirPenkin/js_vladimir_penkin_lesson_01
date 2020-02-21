@@ -27,7 +27,6 @@ function nextElement () {
 
 // выбираем предыдущий элемент
 function beforElement () {
-
 	let elem = document.getElementById("myId");
 	elem.style.color = "black";
 	elem.previousSibling.id = "myId";
