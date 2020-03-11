@@ -1,74 +1,89 @@
+let selectedChild;
+
+//очистка стилей
+function clearStyle(){
+
+    let list = document.getElementById("myList").childNodes;
+
+    for (let i = 0; i < list.length; i++) {
+        list[i].style.color = "";
+    };
+};
+
 // выбираем первый элемент
-function changeFirstElement () {
-	let elem = document.getElementsByTagName("li");
-	elem[0].style.color = "green";
-	elem[0].id = "myId"
-	elem[elem.length - 1].id = "newId";
-	elem[elem.length - 1].style.color = "black";
+function choseFirst() {
+
+    clearStyle();
+    selectedChild = document.getElementById("myList").firstChild;
+    selectedChild.style.color = "green";
 };
 
 // выбираем последний элемент
-function changeLastElement () {
-	let elem = document.getElementsByTagName("li");
-	elem[elem.length - 1].style.color = "green";
-	elem[elem.length - 1].id = "myId";
-	elem[0].id = "newId";
-	elem[0].style.color = "black";
+function choseLast() {
+
+    clearStyle();
+    selectedChild = document.getElementById("myList").lastChild;
+    selectedChild.style.color = "green";
 };
 
-// выбираем следущий элемент   
-function nextElement () {
-	let elem = document.getElementById("myId");
-	elem.style.color = "black";
-	elem.nextSibling.id = "myId";
-	elem.id = "newId";
-	document.getElementById("myId").style.color = "green";
+// выбираем следущий элемент 
+function choseNext() {
+
+    let list = document.getElementById("myList").childNodes;
+    clearStyle();
+    if (selectedChild == null) {
+        choseFirst();   
+    } else {
+        selectedChild = selectedChild.nextSibling;
+        selectedChild.style.color = "green";
+    };
 };
 
 // выбираем предыдущий элемент
-function beforElement () {
-	let elem = document.getElementById("myId");
-	elem.style.color = "black";
-	elem.previousSibling.id = "myId";
-	elem.id = "newId";
-	document.getElementById("myId").style.color = "green";
+function chosePrevious() {
+
+    let list = document.getElementById("myList").childNodes;
+    clearStyle();
+    if (selectedChild == null) {
+        choseLast();   
+    } else {
+        selectedChild = selectedChild.previousSibling;
+        selectedChild.style.color = "green";
+    };
 };
 
 //добавляем последний элемент
 function addLastElement(form) {
-	let el = document.getElementById("myId");
-	el.id = "newId";
-	let newElement = document.createElement("li");
-	newElement.id = "myId";
-	newElement.innerHTML = "Последний элемент";
-	myList.append(newElement);
-	let elem = document.getElementsByTagName("li");
-	elem[0].id = "newId";
+
+    clearStyle();
+    let newElement = document.createElement("li");
+    newElement.innerHTML = "Последний элемент";
+    myList.append(newElement);
 };
 
 //удаляем последний элемент
 function removeLastElement(form) {
-	let mainObj = document.getElementById("myList");
-	let delLi = mainObj.lastChild;
-	mainObj.removeChild(delLi);
-	let li = document.getElementsByTagName("li");
-	li[li.length - 1].id ="myId";
+
+    clearStyle();
+    let mainObj = document.getElementById("myList");
+    let delLi = mainObj.lastChild;
+    mainObj.removeChild(delLi);
 };
 
 //добавляем первый элемент
 function addFirstElement(form) {
-	let newElement = document.createElement("li");
-	newElement.id = "myId";
-	newElement.innerHTML = "Нулевой элемент";
-	myList.prepend(newElement);
+
+    clearStyle();
+    let newElement = document.createElement("li");
+    newElement.innerHTML = "Нулевой элемент";
+    myList.prepend(newElement);
 };
 
 //удаляем первый элемент
-function removeFirstElement(form) {
-	let mainObj = document.getElementById("myList");
-	let delLi = mainObj.firstElementChild;
-	mainObj.removeChild(delLi);
-	let li = document.getElementsByTagName("li");
-	li[0].id = "myId";
-};
+function removeFirstElement (form) {
 
+    clearStyle();
+    let list = document.getElementById("myList");
+    let delLi = list.firstElementChild;
+    list.removeChild(delLi);
+};
